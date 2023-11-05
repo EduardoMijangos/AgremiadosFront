@@ -1,0 +1,7 @@
+{
+  "name": "AgremiadosFront",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
