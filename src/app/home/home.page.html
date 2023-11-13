@@ -1,15 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button (click)="verFormatos()">
         <ion-icon slot="icon-only" name="document-outline"></ion-icon>
         Formatos
       </ion-button>
-      <ion-button>
+      <ion-button (click)="verConvocatorias()">
         <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
         Convocatorias
       </ion-button>
-      <ion-button>
+      <ion-button (click)="verConvenios()">
         <ion-icon slot="icon-only" name="people-circle-outline"></ion-icon>
         Convenios
       </ion-button>
@@ -34,7 +34,7 @@
           <ion-label position="floating">Contraseña</ion-label>
           <ion-input type="password" class="ion-text-center"></ion-input>
         </ion-item>
-        <ion-button expand="full" shape="round" color="primary">
+        <ion-button expand="full" shape="round" color="primary" (click)="login()">
           Iniciar Sesión
         </ion-button>
       </form>    
