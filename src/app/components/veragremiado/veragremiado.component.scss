@@ -1,15 +1,17 @@
-
+/* tu-componente.component.scss */
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    font-size: 14px;
+    font-size: 16px;
     color: #333;
     border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
   
     th, td {
-      padding: 12px;
+      padding: 16px;
       text-align: left;
       border-bottom: 1px solid #ddd;
   
@@ -19,15 +21,32 @@ table {
     }
   
     thead {
-      background-color: #f2f2f2;
+      background-color: #3498db;
+      color: #fff;
     }
   
     tbody tr:nth-child(even) {
-      background-color: #f9f9f9;
+      background-color: #f2f2f2;
     }
   
     tbody tr:hover {
-      background-color: #e5e5e5;
+      background-color: #e0e0e0;
+    }
+  }
+  
+  button {
+    margin: 10px 0;
+    padding: 12px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #2980b9;
     }
   }
   
