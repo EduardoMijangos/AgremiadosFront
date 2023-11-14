@@ -1,10 +1,10 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="success">
     <ion-title class="ion-text-center">Agregar Agremiado</ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" color="dark">
     <ion-grid fixed>
     <form [formGroup]="agregiadoForm" (ngSubmit)="submit()">
         <ion-row class="ion-margin-top">
@@ -96,7 +96,7 @@
         
             <ion-row class="ion-margin-top">
                 <ion-col size="6">
-                <ion-button expand="full" shape="round" color="primary" type="submit" (click)="agregarAgremiado()">Agregar Agremiado</ion-button>
+                <ion-button expand="full" shape="round" color="success" type="submit" (click)="agregarAgremiado()">Agregar Agremiado</ion-button>
                 </ion-col>
                 <ion-col size="6">
                 <ion-button expand="full" shape="round" color="medium" (click)="backPanel()">Regresar al panel</ion-button>
