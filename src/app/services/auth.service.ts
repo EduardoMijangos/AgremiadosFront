@@ -26,7 +26,7 @@ export class AuthService {
   ): Observable<any> {
     const agremiado = {
       nombre: nombre,
-      apellido_p: apellido_p,  // Corregido aquí
+      apellido_p: apellido_p, 
       apellido_m: apellido_m,
       id_genero: id_genero,
       NUE: NUE,
@@ -45,4 +45,11 @@ export class AuthService {
     return this.http.get(`${Url}/getAgremiados`);
   }
   
+  getGenero(id:number): Observable<any>{
+    return this.http.get(`${Url}/getGeneros/`)
+  }
+
+  getRol(id:number): Observable<any>{
+    return this.http.get(`${Url}/getRoles/`)
+  }
 }

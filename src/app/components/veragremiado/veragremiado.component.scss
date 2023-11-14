@@ -21,7 +21,7 @@ table {
     }
   
     thead {
-      background-color: #3498db;
+      background-color: #63db34;
       color: #fff;
     }
   
@@ -49,4 +49,14 @@ table {
       background-color: #2980b9;
     }
   }
+
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .responsive-table {
+    width: 100%;
+    white-space: nowrap;
+  }
+  
   

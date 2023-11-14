@@ -1,23 +1,23 @@
 <ion-header [translucent]="true" class="ion-header-centered">
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons class="iconos">
-      <ion-button (click)="verFormatos()">
-        <ion-icon slot="icon-only" name="document-outline"></ion-icon>
+      <ion-button (click)="verFormatos()" >
+        <ion-icon slot="icon-only" name="document-outline" class="iconos"></ion-icon>
         Formatos
       </ion-button>
-      <ion-button (click)="verConvocatorias()">
-        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      <ion-button (click)="verConvocatorias()" >
+        <ion-icon slot="icon-only" name="notifications-outline" class="iconos"></ion-icon>
         Convocatorias
       </ion-button>
       <ion-button (click)="verConvenios()">
-        <ion-icon slot="icon-only" name="people-circle-outline"></ion-icon>
+        <ion-icon slot="icon-only" name="people-circle-outline" class="iconos"></ion-icon>
         Convenios
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding login-content">
+<ion-content class="ion-padding login-content" color="dark">
 
   <ion-card class="login-card">
     <ion-card-content>
@@ -30,14 +30,14 @@
         <ion-item>
           <ion-label position="floating">Usuario</ion-label>
           <!-- Corrección: Usar formControlName en lugar de name -->
-          <ion-input formControlName="name" type="text" class="ion-text-center"></ion-input>
+          <ion-input formControlName="name" type="text" class="ion-text-center" ></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
           <!-- Corrección: Usar formControlName en lugar de password -->
           <ion-input formControlName="password" type="password" class="ion-text-center"></ion-input>
         </ion-item>
-        <ion-button expand="full" shape="round" color="primary" (click)="login()">
+        <ion-button expand="full" shape="round" color="success" (click)="login()">
           Iniciar Sesión
         </ion-button>
       </form>
