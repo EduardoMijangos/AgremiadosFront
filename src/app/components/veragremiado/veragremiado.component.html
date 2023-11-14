@@ -1,3 +1,36 @@
-<p>
-  veragremiado works!
-</p>
+<!-- tu-componente.component.html -->
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>NUE</th>
+      <th>NUP</th>
+      <th>RFC</th>
+      <th>NSS</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Teléfono</th>
+      <th>Cuota</th>
+      <th>Género</th>
+      <!-- Agrega más columnas según sea necesario -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let agremiado of agremiados">
+      <td>{{ agremiado.nombre }}</td>
+      <td>{{ agremiado.apellido_p }}</td>
+      <td>{{ agremiado.apellido_m }}</td>
+      <td>{{ agremiado.NUE }}</td>
+      <td>{{ agremiado.NUP }}</td>
+      <td>{{ agremiado.RFC }}</td>
+      <td>{{ agremiado.NSS }}</td>
+      <td>{{ agremiado.fecha_nacimiento }}</td>
+      <td>{{ agremiado.telefono }}</td>
+      <td>{{ agremiado.cuota }}</td>
+      <td>{{ agremiado.id_genero }}</td>
+      <!-- Agrega más celdas según sea necesario -->
+    </tr>
+  </tbody>
+</table>

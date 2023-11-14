@@ -11,19 +11,19 @@
         <ion-col size="4">
             <ion-item>
             <ion-label position="floating">Apellido Paterno</ion-label>
-            <ion-input formControlName="apellidoPaterno" placeholder="Ingrese Apellido Paterno"></ion-input>
+            <ion-input formControlName="apellido_p" placeholder="Ingrese Apellido Paterno" type="text"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col size="4">
             <ion-item>
             <ion-label position="floating">Apellido Materno</ion-label>
-            <ion-input formControlName="apellidoMaterno" placeholder="Ingrese Apellido Materno"></ion-input>
+            <ion-input formControlName="apellido_m" placeholder="Ingrese Apellido Materno" type="text"></ion-input>
             </ion-item>
         </ion-col>
         <ion-col size="4">
             <ion-item>
             <ion-label position="floating">Nombre(s)</ion-label>
-            <ion-input formControlName="nombre" placeholder="Ingrese Nombre(s)"></ion-input>
+            <ion-input formControlName="nombre" placeholder="Ingrese Nombre(s)" type="text"></ion-input>
             </ion-item>
         </ion-col>
         </ion-row>
@@ -32,13 +32,13 @@
             <ion-col size="6">
             <ion-item>
                 <ion-label position="floating">NUP</ion-label>
-                <ion-input formControlName="nup" placeholder="Ingrese NUP"></ion-input>
+                <ion-input formControlName="NUP" placeholder="Ingrese NUP" type="text"> </ion-input>
             </ion-item>
             </ion-col>
             <ion-col size="6">
             <ion-item>
                 <ion-label position="floating">NUE</ion-label>
-                <ion-input formControlName="nue" placeholder="Ingrese NUE"></ion-input>
+                <ion-input formControlName="NUE" placeholder="Ingrese NUE" type="text"></ion-input>
             </ion-item>
             </ion-col>
         </ion-row>
@@ -47,13 +47,13 @@
             <ion-col size="6">
             <ion-item>
                 <ion-label position="floating">RFC</ion-label>
-                <ion-input formControlName="rfc" placeholder="Ingrese RFC"></ion-input>
+                <ion-input formControlName="RFC" placeholder="Ingrese RFC" type="text"></ion-input>
             </ion-item>
             </ion-col>
             <ion-col size="6">
             <ion-item>
                 <ion-label position="floating">NSS</ion-label>
-                <ion-input formControlName="nss" placeholder="Ingrese NSS"></ion-input>
+                <ion-input formControlName="NSS" placeholder="Ingrese NSS" type="text"></ion-input>
             </ion-item>
             </ion-col>
         </ion-row>
@@ -62,7 +62,7 @@
             <ion-col size="6">
             <ion-item>
                 <ion-label position="floating">Fecha de Nacimiento</ion-label>
-                <ion-input formControlName="fecha" placeholder="Ingrese su fecha de nacimiento" type="date"></ion-input>
+                <ion-input formControlName="fecha_nacimiento" placeholder="Ingrese su fecha de nacimiento" type="text"></ion-input>
             </ion-item>
             </ion-col>
             <ion-col size="6">
@@ -74,32 +74,32 @@
         </ion-row>
 
             <ion-row class="ion-margin-top">
-                <ion-col size="6">
+                <ion-col size="4">
                 <ion-item>
                     <ion-label position="floating">¿Cuota pagada?</ion-label><br>
-                    <ion-select value="si" multiple="true" formControlName="cuota" placeholder="Seleccionar">
-                    <ion-select-option value="si">Si</ion-select-option>
-                    <ion-select-option value="no">No</ion-select-option>
-                    </ion-select>
+                    <ion-input formControlName="cuota" placeholder="Ingrese su telefono" type="number"></ion-input>
                 </ion-item>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="4">
                 <ion-item>
                     <ion-label position="floating">Género</ion-label><br>
-                    <ion-select value="hombre" multiple="true" formControlName="genero" placeholder="Seleccionar">
-                    <ion-select-option value="hombre">Hombre</ion-select-option>
-                    <ion-select-option value="mujer">Mujer</ion-select-option>
-                    </ion-select>
+                    <ion-input formControlName="id_genero" placeholder="Ingrese su telefono" type="number"></ion-input>
                 </ion-item>
                 </ion-col>
+                <ion-col size="4">
+                    <ion-item>
+                        <ion-label position="floating">Rol</ion-label><br>
+                        <ion-input formControlName="id_rol" placeholder="Ingrese su rol" type="number"></ion-input>
+                    </ion-item>
+                    </ion-col>
             </ion-row>
         
             <ion-row class="ion-margin-top">
                 <ion-col size="6">
-                <ion-button expand="full" shape="round" color="primary" type="submit">Agregar Agremiado</ion-button>
+                <ion-button expand="full" shape="round" color="primary" type="submit" (click)="agregarAgremiado()">Agregar Agremiado</ion-button>
                 </ion-col>
                 <ion-col size="6">
-                <ion-button expand="full" shape="round" color="medium" routerLink="/admin-panel">Regresar al panel de Administrador</ion-button>
+                <ion-button expand="full" shape="round" color="medium" (click)="backPanel()">Regresar al panel</ion-button>
                 </ion-col>
             </ion-row>
             </form>
