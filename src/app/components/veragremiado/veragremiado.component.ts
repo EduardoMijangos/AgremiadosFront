@@ -59,4 +59,12 @@ export class VeragremiadoComponent implements OnInit {
       }
     );
   }
+
+  eliminarAgremiado(){
+
+  }
+
+  editarAgremiado(){
+    
+  }
 }

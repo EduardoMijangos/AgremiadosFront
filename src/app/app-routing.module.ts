@@ -1,3 +1,5 @@
+import { AuthGuard } from './auth.guard'; 
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FormatosComponent } from './components/formatos/formatos.component';
@@ -18,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./components/components.module').then( m => m.ComponentsModule)
   },
   {
-    path: 'panel',
+    path: 'panelad',
     loadChildren: () => import('./pages/paneladmin/paneladmin.module').then( m => m.PaneladminPageModule)
   },
   {
@@ -27,7 +29,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'panelad',
+    path: 'panel',
     redirectTo: 'panel',
     pathMatch: 'full'
   },
@@ -45,19 +47,23 @@ const routes: Routes = [
   },
   {
     path:'formAgremiados',
-    component: FormAgremiadoComponent
+    component: FormAgremiadoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'verAgremiado',
-    component: VeragremiadoComponent
+    component: VeragremiadoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'verSolicitud',
-    component: VersolicitudComponent
+    component: VersolicitudComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'enviarAviso',
-    component: EnviaravisoComponent
+    component: EnviaravisoComponent,
+    canActivate: [AuthGuard]
   },
 
 ];

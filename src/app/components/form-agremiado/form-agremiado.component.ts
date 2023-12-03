@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alerts.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,11 +11,14 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class FormAgremiadoComponent implements OnInit {
   agregiadoForm: FormGroup;
+  generos: any[] = []; 
+  roles:any[]=[];
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertService: AlertsService
   ) {
     this.agregiadoForm = this.fb.group({
       apellido_p: ['', Validators.required],
@@ -32,14 +36,34 @@ export class FormAgremiadoComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authService.getGeneros().subscribe(
+      (response) => {
+        // Asegúrate de adaptar esto según la estructura real de la respuesta
+        this.generos = response; // Aquí cambiamos de response.generos a response
+      },
+      (error) => {
+        console.error('Error al obtener la lista de géneros', error);
+      }
+    );
+
+    this.authService.getRoles().subscribe(
+      (response) => {
+        // Asegúrate de adaptar esto según la estructura real de la respuesta
+        this.roles = response; // Aquí cambiamos de response.generos a response
+      },
+      (error) => {
+        console.error('Error al obtener la lista de roles', error);
+      }
+    );
+  } 
+  
 
   backPanel() {
     this.router.navigate(['/panelad']);
   }
 
   agregarAgremiado() {
-    // Obtén los valores del formulario
     const {
       apellido_p,
       apellido_m,
@@ -55,8 +79,8 @@ export class FormAgremiadoComponent implements OnInit {
       id_rol
     } = this.agregiadoForm.value;
 
-    // Llama a la función addAgremiado del servicio AuthService
-    this.authService.addAgremiado(
+    this.authService
+      .addAgremiado(
         nombre,
         apellido_p,
         apellido_m,
@@ -72,11 +96,20 @@ export class FormAgremiadoComponent implements OnInit {
       )
       .subscribe(
         (respuesta) => {
-          // Maneja la respuesta del servidor según tus necesidades
           console.log('Agremiado agregado exitosamente', respuesta);
+          if (respuesta) {
+            this.authService.setNewAgremiado(respuesta);
+            this.alertService.generateToast({
+              duration: 800,
+              color: 'success',
+              icon: 'checkmark',
+              message: 'Agremiad@ cread@',
+              position: 'top',
+            });
+            this.router.navigate(['/verAgremiado']);
+          }
         },
         (error) => {
-          // Maneja el error, por ejemplo, muestra un mensaje de error al usuario
           console.error('Error al agregar agremiado', error);
         }
       );
