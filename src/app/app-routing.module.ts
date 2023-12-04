@@ -9,6 +9,7 @@ import { FormAgremiadoComponent } from './components/form-agremiado/form-agremia
 import { VeragremiadoComponent } from './components/veragremiado/veragremiado.component';
 import { VersolicitudComponent } from './components/versolicitud/versolicitud.component';
 import { EnviaravisoComponent } from './components/enviaraviso/enviaraviso.component';
+import { EditAgremiadoComponent } from './components/edit-agremiado/edit-agremiado.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/paneladmin/paneladmin.module').then( m => m.PaneladminPageModule)
   },
   {
+  path: 'panelagre',
+  loadChildren: () => import('./pages/panel-agremiado/panel-agremiado.module').then( m => m.PanelAgremiadoPageModule)
+},
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -31,6 +36,11 @@ const routes: Routes = [
   {
     path: 'panel',
     redirectTo: 'panel',
+    pathMatch: 'full'
+  },
+  {
+    path: 'agremiado',
+    redirectTo: 'agremiado',
     pathMatch: 'full'
   },
   {
@@ -63,6 +73,11 @@ const routes: Routes = [
   {
     path:'enviarAviso',
     component: EnviaravisoComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'editarAgremiado',
+    component: EditAgremiadoComponent,
     canActivate: [AuthGuard]
   },
 
