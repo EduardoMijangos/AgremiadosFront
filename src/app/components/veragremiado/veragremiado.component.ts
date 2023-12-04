@@ -3,9 +3,11 @@ import { AlertController, ModalController } from '@ionic/angular';
 import { AgremiadosService } from 'src/app/services/agremiados.service';
 import { AlertsService } from 'src/app/services/alerts.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { FormAgremiadoComponent } from '../form-agremiado/form-agremiado.component';
 import { EditAgremiadoComponent } from '../edit-agremiado/edit-agremiado.component';
-import { Router } from '@angular/router';
+import html2pdf from 'html2pdf.js'
+import * as FileSaver from 'file-saver';
+
+
 
 @Component({
   selector: 'app-veragremiado',
@@ -23,8 +25,7 @@ export class VeragremiadoComponent implements OnInit {
     private agremiadoService: AgremiadosService,
     private alertCtrl: AlertController,
     private modalCtrl: ModalController,
-    private router: Router,
-    private cdr: ChangeDetectorRef
+
 
     ) {}
 
@@ -139,5 +140,31 @@ export class VeragremiadoComponent implements OnInit {
     await modal.present();
   }
   
-
+  async generarPDF() {
+    const content = document.querySelector('.table-container');
+  
+    // Verificación de nulidad
+    if (content) {
+      const pdfOptions = {
+        margin: 10,
+        filename: 'agremiados.pdf',
+        image: { type: 'jpeg', quality: 1.0 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+  
+      try {
+        const pdfBlob = await html2pdf().from(content).set(pdfOptions).output('blob');
+        
+        // Descargar el blob del PDF usando FileSaver.js
+        FileSaver.saveAs(pdfBlob, 'agremiados.pdf');
+      } catch (error) {
+        console.error('Error al generar el PDF:', error);
+      }
+    } else {
+      console.error('El elemento con la clase "table-container" no fue encontrado.');
+    }
+  }
+  
+  
 }

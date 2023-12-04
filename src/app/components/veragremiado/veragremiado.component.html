@@ -49,26 +49,32 @@
                     {{ genero.genero }}
                   </ng-container>
                 </ng-container>
+              </td>
               <td>
-              <ng-container *ngFor="let rol of roles">
-                <ng-container *ngIf="agremiado.id_rol === rol.id">
-                  {{ rol.rol }}
+                <ng-container *ngFor="let rol of roles">
+                  <ng-container *ngIf="agremiado.id_rol === rol.id">
+                    {{ rol.rol }}
+                  </ng-container>
                 </ng-container>
-              </ng-container>
-            </td>
-            <td>
-              <!-- Botones de acciones -->
-              <ion-button (click)="editarAgremiado(agremiado)" fill="clear">
-                <ion-icon slot="icon-only" name="create" color="primary"></ion-icon>
-              </ion-button>
-              <ion-button fill="clear" (click)="eliminarAgremiado(agremiado.id)">
-                <ion-icon slot="icon-only" color="danger" name="trash"></ion-icon>
-              </ion-button>              
-            </td>              
-          </tr>
+              </td>
+              <td>
+                <!-- Botones de acciones -->
+                <ion-button (click)="editarAgremiado(agremiado)" fill="clear">
+                  <ion-icon slot="icon-only" name="create" color="primary"></ion-icon>
+                </ion-button>
+                <ion-button fill="clear" (click)="eliminarAgremiado(agremiado.id)">
+                  <ion-icon slot="icon-only" color="danger" name="trash"></ion-icon>
+                </ion-button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
+
+      <!-- Botón para descargar PDF -->
+      <ion-button (click)="generarPDF()" expand="full" color="success">
+        Descargar PDF
+      </ion-button>
 
     </ion-card-content>
   </ion-card>
