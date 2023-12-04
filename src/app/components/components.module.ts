@@ -9,6 +9,7 @@ import { FormAgremiadoComponent } from './form-agremiado/form-agremiado.componen
 import { VeragremiadoComponent } from './veragremiado/veragremiado.component';
 import { VersolicitudComponent } from './versolicitud/versolicitud.component';
 import { EnviaravisoComponent } from './enviaraviso/enviaraviso.component';
+import { EditAgremiadoComponent } from './edit-agremiado/edit-agremiado.component';
 
 
 
@@ -20,7 +21,8 @@ import { EnviaravisoComponent } from './enviaraviso/enviaraviso.component';
     FormAgremiadoComponent,
     VeragremiadoComponent,
     VersolicitudComponent,
-    EnviaravisoComponent
+    EnviaravisoComponent,
+    EditAgremiadoComponent
   ],
   imports: [    
     CommonModule,
@@ -36,7 +38,8 @@ import { EnviaravisoComponent } from './enviaraviso/enviaraviso.component';
     FormAgremiadoComponent,
     VeragremiadoComponent,
     VersolicitudComponent,
-    EnviaravisoComponent
+    EnviaravisoComponent,
+    EditAgremiadoComponent
   ]
 })
 export class ComponentsModule { }

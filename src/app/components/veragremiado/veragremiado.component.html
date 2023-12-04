@@ -58,12 +58,12 @@
             </td>
             <td>
               <!-- Botones de acciones -->
-              <ion-button (click)="editarAgremiado()" fill="clear">
+              <ion-button (click)="editarAgremiado(agremiado)" fill="clear">
                 <ion-icon slot="icon-only" name="create" color="primary"></ion-icon>
               </ion-button>
-              <ion-button fill="clear" (click)="eliminarAgremiado()">
-              <ion-icon slot="icon-only" color="danger" name="trash"></ion-icon>
-              </ion-button>
+              <ion-button fill="clear" (click)="eliminarAgremiado(agremiado.id)">
+                <ion-icon slot="icon-only" color="danger" name="trash"></ion-icon>
+              </ion-button>              
             </td>              
           </tr>
           </tbody>

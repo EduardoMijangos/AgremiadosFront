@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 
 const Url = 'http://localhost:8000/api';
 
@@ -13,10 +13,44 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
+
   login(name: string, password: string): Observable<any> {
     const body = { name: name, password: password };
-    return this.http.post(`${Url}/newLogin`, body);
+    return this.http.post(`${Url}/newLogin`, body).pipe(
+      map((response: any) => {
+        const user = response?.user;
+        if (user && user.id_rol !== undefined && user.id_rol !== null) {
+          const userType = user.id_rol;
+          this.setLoggedIn(true);
+          this.setLoggedInUserType(userType);
+          return { userType, ...response };
+        } else {
+          console.error('No se pudo obtener el tipo de usuario desde la respuesta del servidor.');
+          return null;
+        }
+      }),
+      catchError((error) => {
+        console.error('Error en la llamada de inicio de sesión', error);
+        return of(null);
+      })
+    );
   }
+
+  // Método para almacenar el tipo de usuario
+  private setLoggedInUserType(userType: number): void {
+    // Almacena el tipo de usuario en algún lugar (puedes usar localStorage, por ejemplo)
+    // También podrías emitir un evento o usar otro enfoque según tus necesidades
+    // En este ejemplo, simplemente almacenaremos el tipo de usuario en localStorage
+    localStorage.setItem('userType', userType.toString());
+  }
+
+  // Método para obtener el tipo de usuario
+  getUserType(): number | null {
+    // Obtén el tipo de usuario desde donde lo hayas almacenado
+    const userType = localStorage.getItem('userType');
+    return userType ? +userType : null; // Convierte a número si existe, de lo contrario, devuelve null
+  }
+
 
   addAgremiado(
     nombre: string, apellido_p: string, apellido_m: string,

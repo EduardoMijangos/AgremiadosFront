@@ -13,13 +13,18 @@ export class FormAgremiadoComponent implements OnInit {
   agregiadoForm: FormGroup;
   generos: any[] = []; 
   roles:any[]=[];
+  edit: boolean = false;
+  agremiadoId = 0;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    private alertService: AlertsService
+    private alertService: AlertsService,
+
+
   ) {
+    
     this.agregiadoForm = this.fb.group({
       apellido_p: ['', Validators.required],
       apellido_m: ['', Validators.required],
